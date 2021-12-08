@@ -33,6 +33,8 @@ spec:
         - name: data
           mountPath: /usr/share/elasticsearch/data
         env:
+          - name: "NETWORK_HOST"
+            value: "site,local"
           - name: cluster.name
             value: k8s-logs
           - name: node.name
