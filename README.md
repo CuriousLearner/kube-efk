@@ -129,3 +129,17 @@ and then can see the analytics:
 ![Kibana Dashboard Analytics for the index pattern](./images/kibana-analytics.png)
 
 That's it. Now we can detect all the logs using fluentd and search ES through Kibana.
+
+For deploying on Digital Ocean, the Stateful Set for Elastic Search was reduced to 1 pod. The final pods looks like this:
+
+![Digital Ocean Pods](./images/do-pods.png)
+
+and we can see everything deployed on Digital Ocean interface
+
+![Digital Ocean Deployed Kubernetes cluster resources](./images/do-deployed.png)
+
+-----------------
+
+This is a sample project I did to learn `doctl` for managing resources on Digital Ocean and Kubernetes basics.
+
+I port-forwarded from DO kubernetes cluster to demo it locally.
