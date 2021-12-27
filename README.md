@@ -1,6 +1,8 @@
 # kube-efk
 Deploying EFK stack on Kubernetes
 
+__NOTE__: For deployment to Digital Ocean, I reduced the replicas of ES StatefulSet to 1 from 3.
+
 This will deploy Elastic Search, Fluentd, and Kibana on a Kubernetes cluster.
 
 Elastic Search (ES) is used to store the logs data and search it.
@@ -14,6 +16,20 @@ Fluentd will be run as a daemon-set so that it is available on all worker nodes 
 Kibana will be run as a deployment of 1 pod and service to interact with Elastic search for displaying data.
 
 ## Steps
+
+### For deployment to DO
+
+Create a Kubernetes cluster on Digital Ocean
+
+Install `doctl` and save the config to kube so that kubectl can interact with it directly
+
+```bash
+doctl kubernetes cluster kubeconfig save <cluster-id-from-DO>
+```
+
+Now we can continue rest of the steps. For deployment to consume less resources, I deployed this with 1 Elastic Search replica on DO, while tried out with 3 replicas locally using Minikube on Docker.
+
+### Steps for deploying EFK
 
 We'll have all the pods/deployment/replica-set in `kube-logging` namespace.
 
